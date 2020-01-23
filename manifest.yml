@@ -1,0 +1,13 @@
+---
+applications:
+- name: ((app_name))
+  instances: ((instances))
+  memory: ((memory))
+  disk_quota: ((disk_quota))
+  health-check-type: http
+  health-check-http-endpoint: /health
+  buildpacks:
+  - ((buildpack-java))
+  path: ((app_path))
+  routes:
+   - route: ((app_name)).((domain))
