@@ -46,7 +46,7 @@ __Simulate app health check issue__
 	
  ```
  cd springboot-performance-simulator
- cf push --vars-file=vars-myenv.yml
+ cf7 push --vars-file=vars-myenv.yml
  ```
 
  * Say you configured, 10 sec timeout for your app health endpoint latency
