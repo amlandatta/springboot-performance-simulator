@@ -30,27 +30,4 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
         		request.getServletPath().startsWith("/simulate") ||
         		request.getServletPath().startsWith("/health") ;
     }
-//
-//    private RequestMatcher examplesRequestMatcher() {
-//        return (request) -> request.getServletPath().equals("/high_latency") ||
-//                request.getServletPath().equals("/custom_metric") ||
-//                request.getServletPath().equals("/simple");
-//    }
 }
-
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-//
-//@Configuration 
-//public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
-//
-//	@Override
-//	protected void configure(HttpSecurity http) throws Exception {
-//		http
-//				.authorizeRequests().anyRequest().permitAll()
-//				.and()
-//				.httpBasic().disable()
-//				.csrf().disable();
-//	}
-//}

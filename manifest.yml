@@ -6,6 +6,7 @@ applications:
   disk_quota: ((disk_quota))
   health-check-type: http
   health-check-http-endpoint: /health
+  health-check-invocation-timeout: 5
   buildpacks:
   - ((buildpack-java))
   path: ((app_path))
