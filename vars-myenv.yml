@@ -1,0 +1,9 @@
+app_name: adperfsimulator
+app_path: ./target/performance-0.0.1-SNAPSHOT.jar
+instances: 1
+memory: 2G
+disk_quota: 512M
+buildpack-java: java_buildpack_offline
+domain: apps.myenv.com
+timeout: 60
+profile: dev

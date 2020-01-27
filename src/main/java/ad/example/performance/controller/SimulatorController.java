@@ -17,7 +17,6 @@ public class SimulatorController {
 
 	private static final int MAX_TIME = 10000;
 	private static final int MIN_TIME = 0;
-	// private static byte[] APP_BYTES = null;
 	private static int NO_OF_MEM_INC_REQUEST = 0;
 	private static Map<Integer, OneMb> APP_BYTES = new HashMap<Integer, OneMb>();
 
@@ -45,27 +44,6 @@ public class SimulatorController {
 		return "Delayed by " + delayTimeInMs + " ms";
 	}
 
-//	private String incrementMemory() {
-//		synchronized (this) {
-//			//NO_OF_MEM_INC_REQUEST++;
-//			NO_OF_MEM_INC_REQUEST=NO_OF_MEM_INC_REQUEST+5;
-//		}
-//		int memory_request = NO_OF_MEM_INC_REQUEST * 1000 * 1000;
-//		APP_BYTES = null;
-//		APP_BYTES = new byte[memory_request];
-//		// increase 1 MB of memory.
-//		return "Memory used in " + (memory_request/1000/1000) + " MB";
-//	}
-
-//	private String incrementMemory(int noOfBlocksMB) {
-//		if (noOfBlocksMB<=0)
-//			noOfBlocksMB=2;
-//		synchronized (this) {
-//			NO_OF_MEM_INC_REQUEST=noOfBlocksMB-1;
-//		}
-//		return incrementMemory();
-//	}
-
 	private String incrementMemory(int noOfBlocksMB) {
 		synchronized (this) {
 			for (int i = 0; i < noOfBlocksMB; i++) {
@@ -86,15 +64,6 @@ public class SimulatorController {
 		return incrementMemory(noOfBlocksMB);
 	}
 
-//	@GetMapping(value = "/memory")
-//	public String incrementMemoryOneMB() {
-//		return incrementMemory();
-//	}
-//	
-//	@GetMapping(value = "/memory/{noofmb}")
-//	public String incrementMemoryHigh(@PathVariable("noofmb") int noOfBlocksMB) {
-//		return incrementMemory(noOfBlocksMB);
-//	}
 
 	@GetMapping(value = "/error")
 	public String error() {
