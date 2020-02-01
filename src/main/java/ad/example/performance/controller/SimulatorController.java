@@ -15,8 +15,8 @@ import ad.example.performance.data.OneMb;
 @RequestMapping("/simulate")
 public class SimulatorController {
 
-	private static final int MAX_TIME = 10000;
-	private static final int MIN_TIME = 0;
+	private static final int MAX_TIME = 5000; //CHANGE-IT
+	private static final int MIN_TIME = 100; //CHANGE-IT
 	private static int NO_OF_MEM_INC_REQUEST = 0;
 	private static Map<Integer, OneMb> APP_BYTES = new HashMap<Integer, OneMb>();
 
