@@ -39,4 +39,4 @@ Refer sample dashboard
 > PCF Metrics 1.x is not declarative hence you need to add metrics manually to each app dashboards.
 PCF Metrics 2.x is declarative.
 
-<p style='text-align: right;'> Next > [Customize PCF Metrics 2.0.x](customize-pcf-metrics-2-0.md) </p>
+Next > [Customize PCF Metrics 2.0.x](customize-pcf-metrics-2-0.md)
