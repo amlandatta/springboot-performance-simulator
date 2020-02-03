@@ -15,17 +15,32 @@ import ad.example.performance.data.OneMb;
 @RequestMapping("/simulate")
 public class SimulatorController {
 
-	private static final int MAX_TIME = 5000; //CHANGE-IT
-	private static final int MIN_TIME = 100; //CHANGE-IT
+	private static final int MAX_TIME = 5000; // CHANGE-IT
+	private static final int MIN_TIME = 100; // CHANGE-IT
 	private static int NO_OF_MEM_INC_REQUEST = 0;
 	private static Map<Integer, OneMb> APP_BYTES = new HashMap<Integer, OneMb>();
 
-
-	@GetMapping(value = {"/delay", "/delay/{timeinms}"} )
+	@GetMapping(value = { "/delay", "/delay/{timeinms}" })
 	public String getDelayedResponse(@PathVariable(name = "timeinms", required = false) Integer timeInMs) {
-		if (timeInMs==null)
-			timeInMs=0;
+		if (timeInMs == null)
+			timeInMs = 0;
 		return delayResponse(timeInMs);
+	}
+
+	@GetMapping(value = { "/cpu", "/cpu/{noofiteration}" })
+	public String getProcessingResponse(@PathVariable(name = "noofiteration", required = false) Integer noofiteration) {
+		if (noofiteration == null)
+			noofiteration = 10;
+		if (noofiteration >= 75)
+			noofiteration = 75;
+		return "For " + noofiteration + " iterations post processing value is: " + getFibonnaci(noofiteration);
+	}
+
+	public static int getFibonnaci(long noofiteration) {
+		if (noofiteration == 1 || noofiteration == 2) {
+			return 1;
+		}
+		return getFibonnaci(noofiteration - 1) + getFibonnaci(noofiteration - 2);
 	}
 
 	@GetMapping(value = "/randomdelay")
@@ -57,13 +72,12 @@ public class SimulatorController {
 		return "Memory used in " + NO_OF_MEM_INC_REQUEST + " MB";
 	}
 
-	@GetMapping(value = {"/memory", "/memory/{noofmb}"} )
+	@GetMapping(value = { "/memory", "/memory/{noofmb}" })
 	public String incrementMemoryHigh(@PathVariable(name = "noofmb", required = false) Integer noOfBlocksMB) {
-		if (noOfBlocksMB==null)
+		if (noOfBlocksMB == null)
 			noOfBlocksMB = 1;
 		return incrementMemory(noOfBlocksMB);
 	}
-
 
 	@GetMapping(value = "/error")
 	public String error() {
