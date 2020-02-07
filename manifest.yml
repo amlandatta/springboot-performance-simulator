@@ -12,3 +12,4 @@ applications:
   path: ((app_path))
   routes:
    - route: ((app_name)).((domain))
+   - route: ((app_name)).apps.internal

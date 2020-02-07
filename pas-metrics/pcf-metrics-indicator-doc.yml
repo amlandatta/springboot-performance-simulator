@@ -1,0 +1,92 @@
+---
+apiVersion: indicatorprotocol.io/v1
+kind: IndicatorDocument
+
+metadata:
+  labels:
+    deployment: "adperformance_metrics"
+
+spec:
+  product:
+    name: org,space,adperfsimulator
+    version: 0.0.1
+
+  indicators:
+    - name: "JVM_Memory_Used_Indicator"
+      promql: "max(max_over_time(jvm_memory_used_bytes{ source_id=\"$sourceId\" }[60s]))"
+      documentation:
+        title: "Custom: JVM - Memory Used in bytes"
+      presentation:
+        units: "bytes"
+    - name: "JVM_Memory_OG_Used_Indicator"
+      promql: "max(max_over_time(jvm_memory_used_bytes{ source_id=\"$sourceId\", area=\"heap\", id=\"PS Old Gen\" }[60s]))"
+      documentation:
+        title: "Custom: JVM - Memory Old Gen in bytes"
+      presentation:
+        units: "bytes"
+    - name: "JVM_Memory_SS_Used_Indicator"
+      promql: "max(max_over_time(jvm_memory_used_bytes{ source_id=\"$sourceId\", area=\"heap\", id=\"PS Survivor Space\" }[60s]))"
+      documentation:
+        title: "Custom: JVM - Memory PS Survivor Space in bytes"
+      presentation:
+        units: "bytes"
+    - name: "JVM_Memory_ES_Used_Indicator"
+      promql: "max(max_over_time(jvm_memory_used_bytes{ source_id=\"$sourceId\", area=\"heap\", id=\"PS Eden Space\" }[60s]))"
+      documentation:
+        title: "Custom: JVM - Memory PS Eden Space in bytes"
+      presentation:
+        units: "bytes"
+    - name: "JVM_Memory_Used_Heap_Indicator"
+      promql: "sum(jvm_memory_used_bytes{ source_id=\"$sourceId\", area=\"heap\"})*100/sum(jvm_memory_max_bytes{ source_id=\"$sourceId\", area=\"heap\"})"
+      documentation:
+        title: "Custom: JVM Heap - % Memory used in bytes"
+      presentation:
+        units: "percentage"
+    - name: "JVM_GC_Pause"
+      promql: "max(max_over_time(jvm_gc_pause_seconds_sum{source_id=\"$sourceId\"}[60s]))"
+      documentation:
+        title: "Custom: JVM - GC pause secs"
+      presentation:
+        units: "none"
+    - name: "JVM_Memory_Used_NonHeap_Indicator"
+      promql: "sum(jvm_memory_used_bytes{ source_id=\"$sourceId\", area=\"nonheap\"})*100/sum(jvm_memory_max_bytes{ source_id=\"$sourceId\", area=\"nonheap\"})"
+      documentation:
+        title: "Custom: JVM Non-Heap - % Memory used  in bytes"
+      presentation:
+        units: "percentage"
+    - name: "JVM_Class_Unloaded"
+      promql: "max(jvm_classes_unloaded_classes_total{source_id=\"$sourceId\"})"
+      documentation:
+        title: "Custom: JVM - Class Unloaded"
+      presentation:
+        units: "counts"
+    - name: "JVM_Class_Loaded"
+      promql: "max(jvm_classes_loaded_classes{source_id=\"$sourceId\"})"
+      documentation:
+        title: "Custom: JVM - Class Loaded"
+      presentation:
+        units: "counts"
+    - name: "JVM_GC_MAX_Data"
+      promql: "avg(irate(jvm_gc_max_data_size_bytes{source_id=\"$sourceId\"}[5m]))"
+      documentation:
+        title: "Custom: JVM - GC Max Data"
+      presentation:
+        units: "bytes"
+    - name: "JVM_Live_Threads"
+      promql: "max(max_over_time(jvm_threads_live_threads{source_id=\"$sourceId\"}[5m]))"
+      documentation:
+        title: "Custom: JVM - Live Threads count"
+      presentation:
+        units: "counts"
+    - name: "JVM_Daemon_Threads"
+      promql: "max(max_over_time(jvm_threads_daemon_threads{source_id=\"$sourceId\"}[5m]))"
+      documentation:
+        title: "Custom: JVM - Daemon Threads count"
+      presentation:
+        units: "counts"
+    - name: "JVM_Peak_Threads"
+      promql: "max(max_over_time(jvm_threads_peak_threads{source_id=\"$sourceId\"}[5m]))"
+      documentation:
+        title: "Custom: JVM - Peak Threads count"
+      presentation:
+        units: "counts"
