@@ -29,7 +29,7 @@ cf registered-metrics-endpoints
 
 PCF App Metrics 2.0.x should have been installed, which is dependent on Metrics Store.
 
-* Create Indicator document - `pcf-metrics-indicator-doc.yml`
+* Create Indicator document - [pcf-metrics-indicator-doc.yml](pcf-metrics-indicator-doc.yml)
 
 ```
 ---
@@ -66,6 +66,8 @@ curl -vvv https://appmetrics.sys.domain/indicator-documents -k -H "Authorization
 ```
 
 Launch PCF App Metrics 2.0 and view dashboard.
+
+![PCF App Metrics 2.0 - Custom Dashboard](../images/pas-2-metrics-custom-dashboard.png)
 
 * To understand the metrics and customize Promql
 
