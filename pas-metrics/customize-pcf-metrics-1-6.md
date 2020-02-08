@@ -1,4 +1,4 @@
-# How to customize custom metrics in PCF Metrics 1.6?
+# How to configure custom metrics in PCF Metrics 1.6?
 
 Refer: [Steps to register metrics endpoint](https://docs.pivotal.io/platform/application-service/2-8/metric-registrar/using.html#json)
 
@@ -40,3 +40,5 @@ Refer sample dashboard
 PCF Metrics 2.x is declarative.
 
 Next > [Customize PCF Metrics 2.0.x](customize-pcf-metrics-2-0.md)
+
+[Back to Table of Content](README.md)

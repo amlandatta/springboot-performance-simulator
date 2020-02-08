@@ -1,4 +1,4 @@
-# How to customize custom metrics in PCF App Metrics 2.0?
+# How to configure custom metrics in PCF App Metrics 2.0?
 
 Refer: [Steps to register metrics endpoint](https://docs.pivotal.io/platform/application-service/2-8/metric-registrar/using.html#json)
 
@@ -79,6 +79,23 @@ Launch PCF App Metrics 2.0 and view dashboard.
 Note: for `cf tail` install plugin `cf install-plugin -r CF-Community "log-cache"`
 
 
-# How to customize custom metrics in PCF App Metrics 2.0 for Multiple App monitoring dashboard?
+# How to configure Multiple App metrics in single dashboard?
 
-To be updated
+* Get guid of the secondary app which you want to include in your dashboard
+
+```
+cf app APP-NAME --guid
+```
+
+* Replace $sourceId with guid of the secondary app
+
+```
+- name: "HTTP_Request_Count_UI"
+  promql: "sum(rate(http_total{source_id=\"edcaf4c3-0a90-55dc-8726-00b86a5e226f\"}[367s]) * 60)"
+  documentation:
+    title: "HTTP Request Count (per minute) - Front"
+  presentation:
+    units: "counts"
+```
+
+ [Back to Table of Content](README.md)
