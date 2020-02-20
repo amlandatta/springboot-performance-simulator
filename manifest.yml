@@ -13,3 +13,6 @@ applications:
   routes:
    - route: ((app_name)).((domain))
    - route: ((app_name)).apps.internal
+  #services:
+   #- ad-registry-service
+   #- ad-config-service

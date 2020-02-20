@@ -21,9 +21,9 @@ server:
 spring:
 #  application:
 #    name: adperformance
-  http:
-    converters:
-      preferred-json-mapper: gson
+  #http:
+    #converters:
+      #preferred-json-mapper: gson
   main:
     allow-bean-definition-overriding: true
 
