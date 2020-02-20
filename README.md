@@ -3,6 +3,21 @@
 * [SpringBoot performance simulator app](springboot-app-simulator-doc.md)
 > A test SpringBoot app to simulate performance by inducing latency, spiking memory usage, creating errors, etc and deploy on PCF (PAS)
 
+* Build app
+
+```
+cd springboot-performance-simulator
+mvn clean package -DskipTests
+```
+
+* Deploy app to PAS
+
+```
+cd springboot-performance-simulator
+cf push --vars-file=vars-myenv.yml
+```
+> change domain name in vars-myenv.yml
+
 * [Custom metrics in SpringBoot app](pas-metrics/README.md)
 > How to monitor custom SpringBoot app metrics using PCF Metrics 1.6?
 
