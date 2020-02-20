@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class HealthController {
 
 	private static int LAST_DELAY_TIME = 0;
+	
+	@GetMapping(value = { "/"  })
+	public String getDefault() {
+		return "hello from ad";
+	}
 
 	@GetMapping(value = { "/health", "/health/{delayinms}" })
 	public String getHealthWithDelay(@PathVariable(name = "delayinms", required = false) Integer timeInMs) {

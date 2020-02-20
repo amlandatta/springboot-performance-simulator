@@ -9,3 +9,8 @@ management:
   trace:
     http:
       enabled: true
+
+spring:
+  http:
+    converters:
+      preferred-json-mapper: gson

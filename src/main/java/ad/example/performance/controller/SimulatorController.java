@@ -88,6 +88,12 @@ public class SimulatorController {
 		}
 		return "OK with error";
 	}
+	
+	@GetMapping(value = "/fail")
+	public String fail() throws Exception {
+		generateError();
+		return "OK with error";
+	}
 
 	private void generateError() throws Exception {
 		try {
