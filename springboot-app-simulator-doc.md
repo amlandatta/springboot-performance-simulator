@@ -17,16 +17,39 @@ __Simulate latency by hitting backend app via app using Internal domain (c2c net
 
 * (1000 ms) <//adperformancesimulator.apps.myenv.com>/a2a/delay/1000
 
+``` 
+# set registration Method as direct and add c2c network policy
+spring.cloud.services.registrationMethod=direct
+
+```
+
 ![Flow: App to App](images/flow-app-backendapp.png)
+
+
+
+__Simulate latency by hitting backend app via app using External domain (Via GoRouter)__
+
+``` 
+# set registration Method as route (default)
+spring.cloud.services.registrationMethod=route
+
+```
+
+* (1000 ms) <//adperformancesimulator.apps.myenv.com>/a2a/delay/1000
+
+![Flow: App to App](images/flow-app-backendapp-viagorouter.png)
+
 
 __Simulate error__, to log errors and can be useful to test scalability of log flow
 
 * <//adperformancesimulator.apps.myenv.com>/simulate/error
 
+
 __Simulate memory__, to push app's memory usage in MB
 
 * (1 MB) <//adperformancesimulator.apps.myenv.com>/simulate/memory
 * (5 MB) <//adperformancesimulator.apps.myenv.com>/simulate/memory/5
+
 
 __Simulate cpu usage__, to increase app's CPU usage
 

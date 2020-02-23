@@ -21,3 +21,5 @@ spring:
   cloud:
     services:
       registrationMethod: direct
+      # direct - c2c networking
+      # route - default

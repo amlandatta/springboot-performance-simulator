@@ -56,7 +56,7 @@ cf push --vars-file=vars-myenv.yml
 * Add network policy to allow container to container networking
 
 ```
-cf add-network-policy backend-app --destination-app backend-app --protocol tcp --port 8080
+cf add-network-policy adperfsimulator --destination-app backend-app --protocol tcp --port 8080
 ```
 
 
