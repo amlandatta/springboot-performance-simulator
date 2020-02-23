@@ -7,3 +7,4 @@ buildpack-java: java_buildpack_offline
 domain: apps.myenv.com
 timeout: 60
 profile: dev
+backend-app-name: backend-app
