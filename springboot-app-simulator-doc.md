@@ -1,5 +1,6 @@
 # springboot-performance-simulator
-A test SpringBoot app to simulate performance by inducing latency, spiking memory usage, creating errors, etc and deploy on PCF (PAS)
+A test SpringBoot app to simulate performance by inducing latency, spiking memory usage, creating errors, etc and deploy on PCF (PAS).
+This application is integrated with Spring Cloud Services - Service Registry
 
 * Rest end-points to simulate test
 
@@ -30,7 +31,7 @@ __Simulate memory__, to push app's memory usage in MB
 __Simulate cpu usage__, to increase app's CPU usage
 
 * <//adperformancesimulator.apps.myenv.com>/simulate/cpu/30 where 30 is no. of iterations of Fibonacci series.
-* * <//adperformancesimulator.apps.myenv.com>/simulate/cpu for 10 iterations
+* <//adperformancesimulator.apps.myenv.com>/simulate/cpu for 10 iterations
 Observed that it can take more than 35 secs to complete one request with 100 iterations, hence limited max iterations to 75. For any input above 75, iteration will be reset to 75.
 
 

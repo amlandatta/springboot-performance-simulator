@@ -53,6 +53,12 @@ app_name: backend-app
 cf push --vars-file=vars-myenv.yml
 ```
 
+* Add network policy to allow container to container networking
+
+```
+cf add-network-policy backend-app --destination-app backend-app --protocol tcp --port 8080
+```
+
 
 * [Custom metrics in SpringBoot app](pas-metrics/README.md)
 > How to monitor custom SpringBoot app metrics using PCF Metrics 1.6?
