@@ -9,6 +9,11 @@ __Simulate latency__
 * (1000 ms) <//adperformancesimulator.apps.myenv.com>/simulate/delay/1000
 * (random delay) <//adperformancesimulator.apps.myenv.com>/simulate/randomdelay
 
+
+__Simulate latency by htting backend app__
+
+* (1000 ms) <//adperformancesimulator.apps.myenv.com>/a2a/delay/1000
+
 __Simulate error__, to log errors and can be useful to test scalability of log flow
 
 * <//adperformancesimulator.apps.myenv.com>/simulate/error

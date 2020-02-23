@@ -6,5 +6,5 @@ disk_quota: 512M
 buildpack-java: java_buildpack_offline
 domain: apps.myenv.com
 timeout: 60
-profile: dev
+profile: mydev
 backend-app-name: backend-app
