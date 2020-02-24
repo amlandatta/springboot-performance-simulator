@@ -18,6 +18,8 @@ server:
     min-response-size: 1024
     
 spring:
+  application:
+    name: adperfsimulator
   cloud:
     services:
       registrationMethod: direct
