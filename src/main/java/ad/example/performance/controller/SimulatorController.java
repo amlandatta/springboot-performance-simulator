@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +16,14 @@ import ad.example.performance.data.OneMb;
 @RestController
 @RequestMapping("/simulate")
 public class SimulatorController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(SimulatorController.class);
 
 	private static final int MAX_TIME = 5000; // CHANGE-IT
 	private static final int MIN_TIME = 100; // CHANGE-IT
 	private static int NO_OF_MEM_INC_REQUEST = 0;
 	private static Map<Integer, OneMb> APP_BYTES = new HashMap<Integer, OneMb>();
+	
 
 	@GetMapping(value = { "/delay", "/delay/{timeinms}" })
 	public String getDelayedResponse(@PathVariable(name = "timeinms", required = false) Integer timeInMs) {
@@ -53,8 +58,7 @@ public class SimulatorController {
 		try {
 			Thread.sleep(delayTimeInMs);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("Simulated error:", e);
 		}
 		return "Delayed by " + delayTimeInMs + " ms";
 	}
@@ -84,7 +88,7 @@ public class SimulatorController {
 		try {
 			generateError();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Simulated error:", e);
 		}
 		return "OK with error";
 	}
